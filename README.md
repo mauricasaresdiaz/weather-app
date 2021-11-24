@@ -16,8 +16,6 @@ To run weather app in a docker container we must follow the following steps:
 
 - Build Docker image: ```docker build -t weather .``` 
 
-- Build Docker image: ```docker build -t weather .``` 
-
 - Run Docker image and foward port: ```docker run -p 3800:3800 weather```
 
 - All done! Weather App server is listening on port 3800 (Or whatever port you have forwarded to 3800 inside the docker container)
