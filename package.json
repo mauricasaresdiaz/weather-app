@@ -1,0 +1,56 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Application that provides a REST API to obtain the weather of cities by name or by geographic coordinates",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc --build --incremental --verbose .",
+    "unit-test": "nyc -- mocha --require ts-node/register --timeout 20000 --reporter mochawesome --reporter-option consoleReporter=min --exit --recursive test/unit/**/*.ts",
+    "test": "npm run unit-test",
+    "precommit": "npm run lint && npm run test && npm run build",
+    "start": "node dist/src/index",
+    "local": "npm run build && npm start"
+  },
+  "keywords": [
+    "Weather",
+    "OpenWeatherMap"
+  ],
+  "author": "Mauricio Casares Diaz",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "fastify": "^3.24.0",
+    "fastify-cors": "^6.0.2",
+    "fastify-plugin": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.9",
+    "@types/sinon": "^10.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "chai": "^4.3.4",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0",
+    "ts-sinon": "^2.0.2",
+    "typescript": "^4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "engines": {
+    "node": "=16.13.0",
+    "npm": ">=8.1.0"
+  }
+}
